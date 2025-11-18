@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="コードファイル">
+      <UniqueIdentifier>{483b814c-d3c9-4f57-b610-3d190f6c50d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム">
+      <UniqueIdentifier>{1ba6dbee-b66b-4911-bc7e-f9a10f7ce464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\App">
+      <UniqueIdentifier>{315a8135-77c7-4394-9264-beeb066ad49b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Model">
+      <UniqueIdentifier>{a6cff4d1-b2ee-459b-8724-ebec5797f742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Input">
+      <UniqueIdentifier>{44d16d38-db17-4fed-ad03-687fbe7f0466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Buffer">
+      <UniqueIdentifier>{3943d2fd-8b4f-461e-99b1-c9b2e8ba6761}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Shader">
+      <UniqueIdentifier>{6fffb987-80a2-470b-bb55-3deb713806e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Sprite">
+      <UniqueIdentifier>{1904ad49-4e82-4d46-a638-016e94f21dee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Texture">
+      <UniqueIdentifier>{00254e52-b838-49f5-b267-e4e2fbf4aec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\DirectX">
+      <UniqueIdentifier>{151a5d3f-8131-4f69-af08-8d07c997b556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Geometory">
+      <UniqueIdentifier>{c95f7316-57ee-4e38-8345-d7f023abf9fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Utility">
+      <UniqueIdentifier>{326996f5-df49-4186-b60d-8ca8fbb66416}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="シェーダー">
+      <UniqueIdentifier>{d30ed09e-b0ce-49d9-bd01-c5003ee2b9ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Camera">
+      <UniqueIdentifier>{6b98df0f-3585-4dbf-b70c-184d1501550f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Imgui">
+      <UniqueIdentifier>{4ede4711-8a93-4436-9b54-fdbd103807f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imconfig.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_dx11.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_win32.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>ベースシステム\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>ベースシステム\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>ベースシステム\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshBuffer.h">
+      <Filter>ベースシステム\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>ベースシステム\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>ベースシステム\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>ベースシステム\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX.h">
+      <Filter>ベースシステム\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometory.h">
+      <Filter>ベースシステム\Geometory</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>ベースシステム\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Easing.h">
+      <Filter>ベースシステム\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>ベースシステム\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="StructMath.h">
+      <Filter>ベースシステム\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>ベースシステム\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraDebug.h">
+      <Filter>ベースシステム\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraGame.h">
+      <Filter>ベースシステム\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Oparation.h">
+      <Filter>ベースシステム\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="imgui.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_demo.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_dx11.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_win32.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_tables.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>ベースシステム\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ベースシステム\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Startup.cpp">
+      <Filter>ベースシステム\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>ベースシステム\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_anime.cpp">
+      <Filter>ベースシステム\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_check.cpp">
+      <Filter>ベースシステム\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_get.cpp">
+      <Filter>ベースシステム\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_morph.cpp">
+      <Filter>ベースシステム\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>ベースシステム\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshBuffer.cpp">
+      <Filter>ベースシステム\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>ベースシステム\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>ベースシステム\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>ベースシステム\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX.cpp">
+      <Filter>ベースシステム\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometory.cpp">
+      <Filter>ベースシステム\Geometory</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>ベースシステム\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraDebug.cpp">
+      <Filter>ベースシステム\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraGame.cpp">
+      <Filter>ベースシステム\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Easing.inl">
+      <Filter>ベースシステム\Utility</Filter>
+    </None>
+    <None Include="StructMath.inl">
+      <Filter>ベースシステム\Utility</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="PS_TexColor.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+    <FxCompile Include="VS_Object.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+    <FxCompile Include="VS_Sprite.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+    <FxCompile Include="PS_Sprite.hlsl">
+      <Filter>シェーダー</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
