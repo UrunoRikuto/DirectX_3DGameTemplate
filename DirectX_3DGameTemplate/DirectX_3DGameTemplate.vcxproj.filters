@@ -150,6 +150,15 @@
     <ClInclude Include="RendererComponent.h">
       <Filter>コードファイル\Component\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite3DRenderer.h">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="BillboardRenderer.h">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -237,6 +246,15 @@
       <Filter>コードファイル\Component\Collision</Filter>
     </ClCompile>
     <ClCompile Include="RendererComponent.cpp">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite3DRenderer.cpp">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="BillboardRenderer.cpp">
       <Filter>コードファイル\Component\Renderer</Filter>
     </ClCompile>
   </ItemGroup>

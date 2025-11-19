@@ -8,6 +8,17 @@
 #include "MeshBuffer.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "RendererComponent.h"
+
+// @brief スプライトの種類
+enum class SpriteKind
+{
+    Screen,
+    World,
+    Billboard,
+
+    Max
+};
 
 // @brief スプライト描画クラス
 class Sprite
@@ -66,6 +77,10 @@ public:
     // @param ps：ピクセルシェーダー
 	static void SetPixelShader(Shader* ps);
  
+    // @brief パラメーター設定
+    // @param param：レンダラー用パラメーター
+	// @param inKind：スプライトの種類
+	static void SetParam(RendererParam param, SpriteKind inKind);
 private:
     // スプライト描画用データ
 	struct Data

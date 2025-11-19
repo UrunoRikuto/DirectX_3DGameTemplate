@@ -3,6 +3,8 @@
     @brief		| スプライト描画
 *//***********************************************************************************/
 #include "Sprite.h"
+#include "Defines.h"
+#include "Camera.h"
 
 //--- 静的メンバ変数の実体定義
 Sprite::Data Sprite::m_data;
@@ -44,11 +46,11 @@ void Sprite::Init()
 
 	// シェーダー
 	m_defVS = std::make_shared<VertexShader>();
-    HRESULT hr = m_defVS->Load("Assets/Shader/VS_Sprite.cso");
+    HRESULT hr = m_defVS->Load(SHADER_PATH("VS_Sprite.cso"));
     if (FAILED(hr)) MessageBox(NULL, "LoadFailed:VS_Sprite", "Error:Sprite.cpp", MB_OK);
 	m_data.vs = m_defVS.get();
 	m_defPS = std::make_shared <PixelShader>();
-	hr = m_defPS->Load("Assets/Shader/PS_Sprite.cso");
+	hr = m_defPS->Load(SHADER_PATH("PS_Sprite.cso"));
     if (FAILED(hr)) MessageBox(NULL, "LoadFailed:PS_Sprite", "Error:Sprite.cpp", MB_OK);
 	m_data.ps = m_defPS.get();
 }
@@ -182,3 +184,59 @@ void Sprite::SetPixelShader(Shader* ps)
 	else
 		m_data.ps = m_defPS.get();
 }
+
+void Sprite::SetParam(RendererParam param, SpriteKind inKind)
+{
+	// パラメーター設定
+	// 座標
+	m_data.param[0].x = 0.0f;
+	m_data.param[0].y = 0.0f;
+	// サイズ
+	m_data.param[0].z = param.m_f3Size.x;
+	m_data.param[0].w = param.m_f3Size.y;
+	// uv座標
+	m_data.param[1].x = param.m_f2UVPos.x;
+	m_data.param[1].y = param.m_f2UVPos.y;
+	// uvサイズ
+	m_data.param[1].z = param.m_f2UVSize.x;
+	m_data.param[1].w = param.m_f2UVSize.y;
+	// 色
+	m_data.param[2] = param.m_f4Color;
+
+	CCamera* pCamera = CCamera::GetInstance();
+
+	DirectX::XMMATRIX mWorld = DirectX::XMMatrixIdentity();
+	DirectX::XMMATRIX mInvView = DirectX::XMMatrixIdentity();
+	// ワールド行列
+	switch (inKind)
+	{
+	case SpriteKind::Screen:
+		mWorld =
+			DirectX::XMMatrixScaling(1.0f, -1.0f, 1.0f) *
+			DirectX::XMMatrixRotationRollPitchYawFromVector(DirectX::XMLoadFloat3(&param.m_f3Rotate)) *
+			DirectX::XMMatrixTranslation(param.m_f3Pos.x + SCREEN_WIDTH * 0.5f, param.m_f3Pos.y + SCREEN_HEIGHT * 0.5f, param.m_f3Pos.z);
+		mWorld = DirectX::XMMatrixTranspose(mWorld);
+
+		DirectX::XMStoreFloat4x4(&m_data.matrix[0], mWorld);
+		m_data.matrix[1] = pCamera->Get2DViewMatrix();
+		m_data.matrix[2] = pCamera->Get2DProjectionMatrix();
+		break;
+	case SpriteKind::World:
+		mWorld =
+			DirectX::XMMatrixRotationRollPitchYaw(param.m_f3Rotate.x, param.m_f3Rotate.y, param.m_f3Rotate.z) *
+			DirectX::XMMatrixTranslation(param.m_f3Pos.x, param.m_f3Pos.y, param.m_f3Pos.z);
+		mWorld = DirectX::XMMatrixTranspose(mWorld);
+		DirectX::XMStoreFloat4x4(&m_data.matrix[0], mWorld);
+		m_data.matrix[1] = pCamera->GetViewMatrix();
+		m_data.matrix[2] = pCamera->GetProjectionMatrix();
+		break;
+	case SpriteKind::Billboard:
+		m_data.matrix[0] = pCamera->GetBillboardWolrdMatrix(param.m_f3Pos);
+		m_data.matrix[1] = pCamera->GetViewMatrix();
+		m_data.matrix[2] = pCamera->GetProjectionMatrix();
+		break;
+	default:
+		break;
+	}
+}
+
