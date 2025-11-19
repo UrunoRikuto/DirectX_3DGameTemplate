@@ -6,6 +6,7 @@
 *//**************************************************/
 #include "SceneGame.h"
 #include "Camera.h"
+#include "TestObject.h"
 
 /****************************************//*
 	@brief　	| コンストラクタ
@@ -28,7 +29,14 @@ CSceneGame::~CSceneGame()
 *//****************************************/
 void CSceneGame::Init()
 {
+	// 基底クラスの初期化処理
+	CScene::Init();
+
+	// カメラの種類をゲーム用カメラに設定
 	CCamera::GetInstance()->SetCameraKind(CameraKind::CAM_GAME);
+
+	// テスト用ゲームオブジェクトの追加
+	AddGameObject<CTestObject>(Tag::GameObject, "TestObject");
 }
 
 /****************************************//*

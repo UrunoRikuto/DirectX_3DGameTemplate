@@ -67,6 +67,9 @@
     <Filter Include="ベースシステム\Load">
       <UniqueIdentifier>{acb4d8dd-a2c7-485c-89b1-97c91a510706}</UniqueIdentifier>
     </Filter>
+    <Filter Include="コードファイル\GameObject\TestObject">
+      <UniqueIdentifier>{0d24192c-6c33-408d-88df-ff774436cdf3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imconfig.h">
@@ -180,6 +183,12 @@
     <ClInclude Include="ObjectLoad.h">
       <Filter>ベースシステム\Load</Filter>
     </ClInclude>
+    <ClInclude Include="ModelRenderer.h">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="TestObject.h">
+      <Filter>コードファイル\GameObject\TestObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -289,6 +298,12 @@
     </ClCompile>
     <ClCompile Include="ObjectLoad.cpp">
       <Filter>ベースシステム\Load</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelRenderer.cpp">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="TestObject.cpp">
+      <Filter>コードファイル\GameObject\TestObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

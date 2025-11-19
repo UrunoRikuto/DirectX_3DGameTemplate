@@ -14,6 +14,9 @@ void CObjectLoad::LoadAll()
 {
 	// フェード用テクスチャのロード
     CRendererComponent::Load(RendererKind::Texture, TEXTURE_PATH("Fade.png"), "Fade");
+
+	// テスト用モデルのロード
+	CRendererComponent::Load(RendererKind::Model, MODEL_PATH("TestModel.obj"), "TestModel", 1.0f, Model::Flip::None);
 }
 
 
