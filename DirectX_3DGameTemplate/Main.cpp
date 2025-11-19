@@ -10,6 +10,7 @@
 #include "Transition.h"
 #include "Camera.h"
 #include "ObjectLoad.h"
+#include "ImguiSystem.h"
 
 const static int DEBUG_GRID_NUM = 20;			// グリッドの数
 const static float DEBUG_GRID_MARGIN = 1.0f;	// グリッドの間隔
@@ -46,6 +47,9 @@ HRESULT Init(HWND hWnd, UINT width, UINT height)
 	// 初期化の例
 	if (FAILED(hr)) { return hr; }
 	g_hWnd = hWnd;
+
+	// Imgui初期化
+	CImguiSystem::GetInstance()->Init();
 
 	// オブジェクトのロード
 	CObjectLoad::LoadAll();
@@ -101,6 +105,10 @@ void Uninit()
 	// オブジェクトのアンロード
 	CObjectLoad::UnLoadAll();
 
+	// Imguiの終了処理
+	CImguiSystem::GetInstance()->Uninit();
+	CImguiSystem::ReleaseInstance();
+
 	// DirectXの終了処理
 	UninitDirectX();
 }
@@ -114,20 +122,23 @@ void Update()
 	UpdateInput();
 	srand(timeGetTime());
 
-
-	if (g_bSceneChanging)
+	// シーンの更新
+	if (CImguiSystem::GetInstance()->IsUpdate())
 	{
-		g_pScene->Uninit();
-		delete g_pScene;
-		g_pScene = g_pNextScene;
-		g_pScene->Init();
-		g_bSceneChanging = false;
-	}
+		if (g_bSceneChanging)
+		{
+			g_pScene->Uninit();
+			delete g_pScene;
+			g_pScene = g_pNextScene;
+			g_pScene->Init();
+			g_bSceneChanging = false;
+		}
 
-	CCamera* pCamera = CCamera::GetInstance();
-	pCamera->Update();
-	g_pScene->Update();
-	g_pTransition->Update();
+		CCamera* pCamera = CCamera::GetInstance();
+		pCamera->Update();
+		g_pScene->Update();
+		g_pTransition->Update();
+	}
 
 	if (IsKeyPress('U'))
 	{
@@ -137,6 +148,8 @@ void Update()
 		}
 	}
 
+	// Imguiの更新
+	CImguiSystem::GetInstance()->Update();
 }
 
 /*************************//*
@@ -181,6 +194,7 @@ void Draw()
 
 	g_pScene->Draw();
 	g_pTransition->Draw();
+	if (g_bDebugMode)CImguiSystem::GetInstance()->Draw();
 
 	EndDrawDirectX();
 }

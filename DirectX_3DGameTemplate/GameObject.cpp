@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "imgui.h"
 #include "Oparation.h"
+#include "ImguiSystem.h"
 
 /****************************************//*
 	@brief　	| コンストラクタ
@@ -118,6 +119,115 @@ void CGameObject::Destroy()
 bool CGameObject::IsDestroy()
 {
 	return m_bDestroy;
+}
+
+/****************************************//*
+    @brief　	| インスペクター表示処理
+    @param      | isEnd：true:ImGuiのEnd()を呼ぶ false:呼ばない
+    @return     | 表示した項目数
+    @note       | ImGuiを使用してオブジェクトのパラメータを表示、編集する
+*//****************************************/
+int CGameObject::Inspecter(bool isEnd)
+{
+    // 表示項目のカウント変数
+	int nImGuiItemCount = 0;
+
+    // IMGUIウィンドウの初期化
+    ImGui::SetNextWindowPos(ImVec2(SCREEN_WIDTH - 300, 20));
+    ImGui::SetNextWindowSize(ImVec2(280, SCREEN_HEIGHT - 140));
+    ImGui::Begin("Inspecter");
+
+    /**** 名前表示 ****/
+    ImGui::BeginChild(ImGui::GetID((void*)nImGuiItemCount), ImVec2(250, 30), ImGuiWindowFlags_NoTitleBar);
+
+    // インスペクターに名前を表示
+    ObjectID id = m_tID;
+    std::string name = id.m_sName;
+
+    // 同オブジェクトが2つ以上ある場合、そのindexも名前に表示する
+    if (id.m_nSameCount != 0) name += std::to_string(id.m_nSameCount);
+    name = "Name:" + name;
+    ImGui::Text(name.c_str());
+
+    // 子要素の終了
+    ImGui::EndChild();
+    // 表示項目のカウントを増やす
+    nImGuiItemCount++;
+	/***** 名前表示 *****/
+
+    /***** 位置、サイズ、回転の表示 *****/
+    ImGui::BeginChild(ImGui::GetID((void*)nImGuiItemCount), ImVec2(250, 270), ImGuiWindowFlags_NoTitleBar);
+
+	// 更新処理が停止している場合は編集可能にする
+    if (CImguiSystem::GetInstance()->IsUpdate())
+    {
+        // 折りたたみヘッダーの表示
+        if (ImGui::CollapsingHeader(std::string("[Transform]").c_str()))
+        {
+            // 座標の表示
+            ImGui::Text(std::string("Position").c_str());
+            DirectX::XMFLOAT3 pos = m_tParam.m_f3Pos;
+            ImGui::Text("PosX: %.2f", pos.x);
+            ImGui::Text("PosY: %.2f", pos.y);
+            ImGui::Text("PosZ: %.2f", pos.z);
+            ImGui::Text("\n");
+
+            // サイズの表示
+            ImGui::Text(std::string("Size").c_str());
+            DirectX::XMFLOAT3 size = m_tParam.m_f3Size;
+            ImGui::Text("SizeX: %.2f", size.x);
+            ImGui::Text("SizeY: %.2f", size.y);
+            ImGui::Text("SizeZ: %.2f", size.z);
+            ImGui::Text("\n");
+
+            // 回転の表示
+            ImGui::Text(std::string("Rotation").c_str());
+            DirectX::XMFLOAT3 rotate = m_tParam.m_f3Rotate;
+            ImGui::Text("RotateX: %.2f", rotate.x);
+            ImGui::Text("RotateY: %.2f", rotate.y);
+            ImGui::Text("RotateZ: %.2f", rotate.z);
+        }
+    }
+	// 更新処理が停止していない場合は編集不可にする
+    else
+    {
+        // 折りたたみヘッダーの表示
+        if (ImGui::CollapsingHeader(std::string("[Transform]").c_str()))
+        {
+            // 座標の表示と変更
+            DirectX::XMFLOAT3* pos = &m_tParam.m_f3Pos;
+            float inputPos[3] = { pos->x,pos->y,pos->z };
+            ImGui::InputFloat3("Position", inputPos, "%.2f");
+            ImGui::Text("\n");
+            *pos = DirectX::XMFLOAT3(inputPos[0], inputPos[1], inputPos[2]);
+
+            // サイズの表示と変更
+            DirectX::XMFLOAT3* size = &m_tParam.m_f3Size;
+            float inputSize[3] = { size->x,size->y,size->z };
+            ImGui::InputFloat3("Size", inputSize, "%.2f");
+            ImGui::Text("\n");
+            *size = DirectX::XMFLOAT3(inputSize[0], inputSize[1], inputSize[2]);
+
+            // 回転の表示と変更
+            DirectX::XMFLOAT3* rotate = &m_tParam.m_f3Rotate;
+            float inputRotate[3] = { rotate->x,rotate->y,rotate->z };
+            ImGui::InputFloat3("Rotate", inputRotate, "%.2f");
+            ImGui::Text("\n");
+            *rotate = DirectX::XMFLOAT3(inputRotate[0], inputRotate[1], inputRotate[2]);
+        }
+    }
+
+    // 子要素の終了
+    ImGui::EndChild();
+    // 表示項目のカウントを増やす
+    nImGuiItemCount++;
+    /***** 位置、サイズ、回転の表示 *****/
+
+    // IMGUIウィンドウの終了
+    if (isEnd) ImGui::End();
+    
+	// 子要素の数を返す
+    return nImGuiItemCount;
 }
 
 /****************************************//*

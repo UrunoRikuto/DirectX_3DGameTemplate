@@ -85,6 +85,12 @@ public:
 	// @return true:破棄予定 false:破棄されていない
     bool IsDestroy();
 
+	// @brief インスペクター表示処理
+	// @param isEnd：true:ImGuiのEnd()を呼ぶ false:呼ばない
+	// @return 表示した項目数
+	// @note ImGuiを使用してオブジェクトのパラメータを表示、編集する
+    virtual int Inspecter(bool isEnd = true);
+
 	// @brief オブジェクトの前方向ベクトルの取得
 	// @return (DirectX::XMFLOAT3)前方向単位ベクトル
     DirectX::XMFLOAT3 GetForward();
