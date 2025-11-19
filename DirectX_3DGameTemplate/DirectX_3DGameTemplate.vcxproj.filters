@@ -58,6 +58,15 @@
     <Filter Include="コードファイル\Component\Renderer">
       <UniqueIdentifier>{9834039e-d4dd-4ec0-8ed3-abfeceb9a74c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="コードファイル\Scene">
+      <UniqueIdentifier>{e1202c01-80bb-40f7-9cd1-83000149f264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Transition">
+      <UniqueIdentifier>{7c536632-d434-4342-9c2d-4143ee4e7153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Load">
+      <UniqueIdentifier>{acb4d8dd-a2c7-485c-89b1-97c91a510706}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imconfig.h">
@@ -159,6 +168,18 @@
     <ClInclude Include="BillboardRenderer.h">
       <Filter>コードファイル\Component\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="SceneGame.h">
+      <Filter>コードファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>コードファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>ベースシステム\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLoad.h">
+      <Filter>ベースシステム\Load</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -256,6 +277,18 @@
     </ClCompile>
     <ClCompile Include="BillboardRenderer.cpp">
       <Filter>コードファイル\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>コードファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGame.cpp">
+      <Filter>コードファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>ベースシステム\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectLoad.cpp">
+      <Filter>ベースシステム\Load</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

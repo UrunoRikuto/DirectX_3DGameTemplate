@@ -169,16 +169,28 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
+/*************************//*
+	@brief		|アプリケーション終了処理
+*//*************************/
 void AppEnd()
 {
 	g_bEnd = true;
 }
 
+
+/*************************//*
+	@brief		|ウインドウハンドル取得
+	@return		| ウインドウハンドル
+*//*************************/
 HWND GetMyWindow()
 {
 	return myHWnd;
 }
 
+/*************************//*
+	@brief		|フレームレート取得
+	@return		| フレームレート
+*//*************************/
 int GetFPS()
 {
 	return myFPS;
