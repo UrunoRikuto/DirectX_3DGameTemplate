@@ -22,9 +22,6 @@
     <Filter Include="ベースシステム\Shader">
       <UniqueIdentifier>{6fffb987-80a2-470b-bb55-3deb713806e3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ベースシステム\Sprite">
-      <UniqueIdentifier>{1904ad49-4e82-4d46-a638-016e94f21dee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ベースシステム\Texture">
       <UniqueIdentifier>{00254e52-b838-49f5-b267-e4e2fbf4aec7}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,21 @@
     </Filter>
     <Filter Include="ベースシステム\Imgui">
       <UniqueIdentifier>{4ede4711-8a93-4436-9b54-fdbd103807f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ベースシステム\Sprite">
+      <UniqueIdentifier>{1904ad49-4e82-4d46-a638-016e94f21dee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="コードファイル\GameObject">
+      <UniqueIdentifier>{fa752cc7-e8ff-45d0-8ea8-933f6e8006ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="コードファイル\Component">
+      <UniqueIdentifier>{17c5a446-26c1-4280-8a98-dac8104b60a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="コードファイル\Component\Collision">
+      <UniqueIdentifier>{1536ce56-cdec-4e19-b3b2-ff1de18fa395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="コードファイル\Component\Renderer">
+      <UniqueIdentifier>{9834039e-d4dd-4ec0-8ed3-abfeceb9a74c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +135,21 @@
     <ClInclude Include="Oparation.h">
       <Filter>ベースシステム\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>コードファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>コードファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBase.h">
+      <Filter>コードファイル\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionObb.h">
+      <Filter>コードファイル\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererComponent.h">
+      <Filter>コードファイル\Component\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -196,6 +223,21 @@
     </ClCompile>
     <ClCompile Include="CameraGame.cpp">
       <Filter>ベースシステム\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>コードファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>コードファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBase.cpp">
+      <Filter>コードファイル\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionObb.cpp">
+      <Filter>コードファイル\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="RendererComponent.cpp">
+      <Filter>コードファイル\Component\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

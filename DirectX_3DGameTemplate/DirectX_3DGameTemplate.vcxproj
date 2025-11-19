@@ -135,10 +135,14 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraDebug.h" />
     <ClInclude Include="CameraGame.h" />
+    <ClInclude Include="CollisionBase.h" />
+    <ClInclude Include="CollisionObb.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="DirectX.h" />
     <ClInclude Include="Easing.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Geometory.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
@@ -153,6 +157,7 @@
     <ClInclude Include="MeshBuffer.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Oparation.h" />
+    <ClInclude Include="RendererComponent.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StructMath.h" />
@@ -162,7 +167,11 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraDebug.cpp" />
     <ClCompile Include="CameraGame.cpp" />
+    <ClCompile Include="CollisionBase.cpp" />
+    <ClCompile Include="CollisionObb.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="DirectX.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Geometory.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
@@ -179,6 +188,7 @@
     <ClCompile Include="Model_check.cpp" />
     <ClCompile Include="Model_get.cpp" />
     <ClCompile Include="Model_morph.cpp" />
+    <ClCompile Include="RendererComponent.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Startup.cpp" />
