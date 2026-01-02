@@ -140,7 +140,8 @@
     <ClInclude Include="CollisionObb.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ImguiSystem.h" />
-    <ClInclude Include="TestObject.h" />
+    <ClInclude Include="ShaderManager.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="DirectX.h" />
     <ClInclude Include="Easing.h" />
@@ -182,7 +183,7 @@
     <ClCompile Include="CollisionObb.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ImguiSystem.cpp" />
-    <ClCompile Include="TestObject.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="DirectX.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Geometory.cpp" />

@@ -61,14 +61,14 @@
     <Filter Include="コードファイル\GameObject">
       <UniqueIdentifier>{fa752cc7-e8ff-45d0-8ea8-933f6e8006ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="コードファイル\GameObject\TestObject">
-      <UniqueIdentifier>{0d24192c-6c33-408d-88df-ff774436cdf3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="コードファイル\Scene">
       <UniqueIdentifier>{e1202c01-80bb-40f7-9cd1-83000149f264}</UniqueIdentifier>
     </Filter>
     <Filter Include="コードファイル\Imgui\System">
       <UniqueIdentifier>{aa9d48a8-4962-427d-bf28-199f842fa78b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="コードファイル\DesignPatternBase">
+      <UniqueIdentifier>{9cee6c2d-77a2-4cf9-8819-fd195fdf1435}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -162,9 +162,6 @@
     <ClInclude Include="ModelRenderer.h">
       <Filter>コードファイル\Component\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="TestObject.h">
-      <Filter>コードファイル\GameObject\TestObject</Filter>
-    </ClInclude>
     <ClInclude Include="imconfig.h">
       <Filter>コードファイル\Imgui\System</Filter>
     </ClInclude>
@@ -191,6 +188,12 @@
     </ClInclude>
     <ClInclude Include="ImguiSystem.h">
       <Filter>コードファイル\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>コードファイル\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>コードファイル\DesignPatternBase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -284,9 +287,6 @@
     <ClCompile Include="ModelRenderer.cpp">
       <Filter>コードファイル\Component\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="TestObject.cpp">
-      <Filter>コードファイル\GameObject\TestObject</Filter>
-    </ClCompile>
     <ClCompile Include="imgui.cpp">
       <Filter>コードファイル\Imgui\System</Filter>
     </ClCompile>
@@ -310,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="ImguiSystem.cpp">
       <Filter>コードファイル\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>コードファイル\Shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
