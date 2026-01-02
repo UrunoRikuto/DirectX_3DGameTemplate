@@ -25,7 +25,8 @@ void CBillboardRenderer::Draw()
 
 	// 深度バッファを無効にする 
 	RenderTarget* pRTV = GetDefaultRTV();
-	SetRenderTargets(1, &pRTV, nullptr);
+	DepthStencil* pDSV = GetDefaultDSV();
+	SetRenderTargets(1, &pRTV, pDSV);
 
 	// カリングのセット
 	SetCullingMode(m_tParam.m_eCulling);

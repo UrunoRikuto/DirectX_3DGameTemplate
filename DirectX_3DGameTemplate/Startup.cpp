@@ -96,45 +96,54 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	DWORD fpsCount = 0;			//FPS値計測カウンタ
 
 	//--- ウィンドウの管理
+	// フレーム時間（ミリ秒）
+	const DWORD frameDuration = 1000 / FPS;
+	const DWORD spinWindow = 2; // 最後に短時間スピンするウィンドウ（ms）
+
 	while (!g_bEnd)
 	{
-		if (PeekMessage(&message, NULL, 0, 0, PM_NOREMOVE))
+		// メッセージ処理
+		while (PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
 		{
-			if (!GetMessage(&message, NULL, 0, 0))
+			if (message.message == WM_QUIT) { g_bEnd = true; break; }
+			TranslateMessage(&message);
+			DispatchMessage(&message);
+		}
+
+		if (g_bEnd) break;
+
+		// フレームレート制御
+		DWORD now = timeGetTime();
+		DWORD elapsed = now - oldTime;
+		if (elapsed < frameDuration)
+		{
+			DWORD remaining = frameDuration - elapsed;
+			if (remaining > spinWindow + 1)
 			{
-				break;
+				// 十分な待ち時間がある場合：ブロッキングで待つ
+				Sleep(remaining - spinWindow);
 			}
 			else
 			{
-				TranslateMessage(&message);
-				DispatchMessage(&message);
+				// 微小な待ち：他のスレッドに実行を譲る
+				Sleep(0);
 			}
-		}
-		else
-		{
-			time = timeGetTime();//ミリ秒 / FPS
-			if (time - oldTime >= 1000 / FPS)
-			{
-				Update();
-				Draw();
-				oldTime = time;
 
-				//処理回数をカウント
-				fpsCount++;
-				//前回の実行から一秒以上経過したら
-				if (time - fpsTime >= 1000)
-				{
-					//整数型から文字列へ変換
-					char mes[256];
-					//sprintf→文字列に対してprintfで書き込む
-					//sprintf(mes, "FPS:%d");
-					//FPSの表示
-					myFPS = fpsCount;
-					//次の計測の準備
-					fpsCount = 0;
-					fpsTime = time;
-				}
-			}
+			// 微小な残り時間をスピンで待つ
+			while ((timeGetTime() - oldTime) < frameDuration) { /* tight wait */ }
+		}
+
+		// 更新と描画
+		now = timeGetTime();
+		if (now - oldTime >= frameDuration)
+		{
+			Update();
+			Draw();
+			oldTime = now;
+
+			// FPS計測
+			fpsCount++;
+			if (now - fpsTime >= 1000) { myFPS = fpsCount; fpsCount = 0; fpsTime = now; }
 		}
 	}
 

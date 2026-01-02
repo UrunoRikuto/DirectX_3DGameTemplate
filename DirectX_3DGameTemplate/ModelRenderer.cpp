@@ -57,6 +57,12 @@ void CModelRenderer::Draw()
     world = DirectX::XMMatrixTranspose(world);
     DirectX::XMStoreFloat4x4(&wvp[0], world);
 
+    // 頂点シェーダーに情報を渡す
+    switch (m_pVS->m_eType)
+    {
+    case VSType::Object:
+    {
+
     // ビュー行列
     wvp[1] = pCamera->GetViewMatrix();
 
@@ -65,6 +71,19 @@ void CModelRenderer::Draw()
 
     // シェーダーに行列を渡す
 	m_pVS->WriteBuffer(0, wvp);
+    }
+    break;
+    }
+
+    // ピクセルシェーダーに情報を渡す
+    switch (m_pPS->m_eType)
+    {
+    case PSType::TexColor:
+    {
+
+    }
+    break;
+    }
 
     // モデルにシェーダーをセット
     Model* pModel = std::get<ModelParam>(m_RendererObjectMap.find(m_sKey.c_str())->second.m_Data).m_pModel;
